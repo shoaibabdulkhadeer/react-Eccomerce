@@ -1,12 +1,32 @@
 import React from 'react'
-
+import {Container} from 'react-bootstrap'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import { Route, Routes } from "react-router-dom";
+import Home from './routes/Home'
+import Account from './routes/Account'
 
 function App() {
 
   return (
     <>
 
-       <h1>Welcome to pro shop</h1>
+       <Header />
+    
+       <main className='py-3'>
+       <Container>
+
+       <Routes >
+
+          <Route path='/' element={<Home />}/>
+          <Route path='/account' element={<Account />}/>
+        </Routes>
+
+
+        </Container>
+       </main>
+     
+       <Footer />
 
     </>
   );
