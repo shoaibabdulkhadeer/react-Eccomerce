@@ -2,3 +2,20 @@ main {
   min-height: 80vh;
 }
 
+.title{
+  font-weight: 600;
+  font-size: 22px;
+  color: rgb(255, 249, 240);
+  
+}
+.price {
+  color: aliceblue;
+}
+
+.navlinks{
+  text-decoration: none;
+
+}
+.navlinks:hover {
+  color: rgb(201, 201, 207);
+}

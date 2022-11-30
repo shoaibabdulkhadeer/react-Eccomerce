@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import { Route, Routes } from "react-router-dom";
 import Home from './routes/Home'
 import Account from './routes/Account'
+import ProductScreen from './routes/ProductScreen';
 
 function App() {
 
@@ -17,9 +18,9 @@ function App() {
        <Container>
 
        <Routes >
-
-          <Route path='/' element={<Home />}/>
+          <Route path='/' element={<Home />} exact/>
           <Route path='/account' element={<Account />}/>
+          <Route path='/product/:id' element={<ProductScreen />} />
         </Routes>
 
 
