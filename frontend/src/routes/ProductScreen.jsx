@@ -1,15 +1,28 @@
-import React from 'react'
-import { Col, Container, ListGroup, ListGroupItem, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Button, Card, Col, Container, ListGroup, ListGroupItem, Row } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import Rating from '../components/Rating'
-import products from '../products'
+import axios from 'axios'
 
 
 
 const ProductScreen = () => {
+ 
+const [product,setProduct] = useState({})
 
-  const {id} = useParams()
-  const product = products.find((p) => p._id === id)
+
+const params = useParams()
+
+useEffect(()=> {
+ axios.get(`/api/products/${params.id}`).then((response) => {
+      setProduct(response.data)
+ })
+},[])
+
+
+  // const {id} = useParams()
+  // const product = products.find((p) => p._id === id)
+  
   return (
     <div >
         
@@ -39,8 +52,44 @@ const ProductScreen = () => {
           <ListGroupItem>
             <p>{product.description}</p>
           </ListGroupItem> 
-          
-          </ListGroup>
+                  </ListGroup>
+        </Col>
+
+        <Col md={3}>
+        <Card>
+        <ListGroup variant='flush'>
+          <ListGroupItem>
+             <Row>
+              <Col>Price:</Col>
+              <Col>
+                <strong>${product.price}</strong>
+              </Col>
+             </Row>
+          </ListGroupItem>
+
+
+          <ListGroupItem>
+             <Row>
+              <Col>Status:</Col>
+              <Col>
+                <strong>{product.countInStock > 0 ? "Instock": "Out of Stock"}</strong>
+              </Col>
+             </Row>
+          </ListGroupItem>
+
+          <ListGroupItem>
+            <Button
+             className='btn btn-info' 
+             type='button'
+             disabled={product.countInStock === 0}
+             >  Add to Cart
+             </Button>
+          </ListGroupItem>
+
+        </ListGroup>
+
+        </Card>
+
         </Col>
 
     

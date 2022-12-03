@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shoaibabdulkhadeer/React-Eccomerce.git"
+  },
+  "author": "shoaib ak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shoaibabdulkhadeer/React-Eccomerce/issues"
+  },
+  "homepage": "https://github.com/shoaibabdulkhadeer/React-Eccomerce#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
