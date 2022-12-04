@@ -11,18 +11,17 @@ const ProductScreen = () => {
 const [product,setProduct] = useState({})
 
 
-const params = useParams()
+const {id} = useParams()
 
 useEffect(()=> {
- axios.get(`/api/products/${params.id}`).then((response) => {
+ axios.get(`/api/products/${id}`).then((response) => {
       setProduct(response.data)
  })
 },[])
 
-
   // const {id} = useParams()
   // const product = products.find((p) => p._id === id)
-  
+
   return (
     <div >
         
