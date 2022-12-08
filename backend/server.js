@@ -16,8 +16,10 @@ app.get('/api/products',(req,res) => {
 })
 
 
+// api Call for product screen
 app.get('/api/products/:id',(req,res) => {
-    const product = products.find(p => p._id === req.params.id)
+    //   to show only that product which is equal to the params id from the hover/click which happens in the front end
+    const product = products.find(p => p._id === req.params.id)  
     res.json(product)
 })
 
